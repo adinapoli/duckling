@@ -35,6 +35,7 @@ import qualified Data.Text as Text
 import qualified Data.Text.Internal.Unsafe.Char as UText
 
 import Duckling.Locale (Lang(..))
+import qualified Duckling.Compat as Compat
 
 data Document = Document
   { rawInput :: !Text
@@ -276,8 +277,8 @@ byteStringFromPos
   rangeToText :: (Int, Int) -> Text
   rangeToText (-1, _) = ""
   -- this is what regexec from Text.Regex.PCRE.ByteString does
-  rangeToText r = UText.takeWord16 (end16Pos - start16Pos) $
-    UText.dropWord16 start16Pos rawInput
+  rangeToText r = Compat.takeWord16 (end16Pos - start16Pos) $
+    Compat.dropWord16 start16Pos rawInput
     where
     start16Pos = tDropToUtf16Drop Array.! startPos
     end16Pos = tDropToUtf16Drop Array.! endPos
