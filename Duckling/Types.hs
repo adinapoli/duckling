@@ -131,6 +131,9 @@ data Dimension a where
   Volume :: Dimension VolumeData
   CustomDimension :: CustomDimension a => a -> Dimension (DimensionData a)
 
+instance Eq (Dimension a) where
+  a == b = maybe False (const True) (geq a b)
+
 -- Show
 instance Show (Dimension a) where
   show RegexMatch = "RegexMatch"
