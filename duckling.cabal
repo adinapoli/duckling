@@ -888,6 +888,7 @@ library
                      , hashable              >= 1.2.4.0 && < 1.5
                      , regex-base            >= 0.93.2 && < 0.95
                      , text                  >= 1.2.2.1 && < 2.2
+                     , text16-compat         >= 0.1.0.0
                      , text-show             >= 2.1.2 && < 3.10
                      , time                  >= 1.5.0.1 && < 2
                      , timezone-series       >= 0.1.5.1 && < 0.2
